@@ -1,5 +1,5 @@
-const apiKey = YOUR_API_KEY;
-const apiUrl = YOUR_API_URL;
+const apiKey = KEY;
+const apiUrl = URL;
 const searchBox = document.querySelector(".search input");
 const searchBtn = document.querySelector(".search button");
 const weatherIcon = document.querySelector(".weather-icon");
@@ -13,7 +13,7 @@ async function checkWeather(city) {
         var data = await response.json();
         document.querySelector(".city").innerText = data.name;
         document.querySelector(".temp").innerText = Math.round(data.main.temp) + "°C";
-        document.querySelector(".humidity").innerText = data.main.humidity + "%";
+        document.querySelector(".humidity").innerText = Math.round(data.main.humidity) + "%";
         document.querySelector(".wind").innerText = Math.round(data.wind.speed) + "km/h";
         if (data.weather[0].main == "Clouds") {
             weatherIcon.src = "images/clouds.png";
